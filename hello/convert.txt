@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+class Number
+{
+public:
+	int n;
+		Number(int x,int y)
+	{
+		if(y==10)
+			n=x;
+	}
+
+	Number converto(int);
+
+	void show()
+	{
+		cout<<n<<endl;
+	}
+
+	void set(int k)
+	{
+		n=k;
+	}
+};
+
+Number Number::converto(int z)
+{
+	int sum=0,d,i=0;
+	Number f(0,10);
+	for(;n>z;)
+	{
+		d=n%z;
+		sum=d*pow(10,i++) +sum;
+		n=n/z;
+	}
+	n=n*pow(10,i)+sum;
+	f.set(n);
+	return f;
+}
+
+int main() {
+    int n, n1, n2;
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::cin >> n1 >> n2;
+        Number no1(n1, 10);     //n1是10进制正整数
+        Number no3 = no1.converto(n2);  //no3是n2进制的正整数
+        no3.show();     //输出结果
+    }
+}
