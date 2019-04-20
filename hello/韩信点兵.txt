@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+
+class HanXin
+{
+public:
+	int x,c,v;
+
+	void line3(int o)
+	{
+		x=o;
+	}
+
+	void line5(int o)
+	{
+		c=o;
+	}
+
+	void line7(int o)
+	{
+		v=o;
+	}
+
+	void showMany()
+	{
+		int n;
+			for(n=10;n<101;n++) {
+           if((n%3==x)&&(n%5==c)&&(n%7==v)) 
+		   {
+             printf("%d\n",n);
+             break;
+		   }
+	}
+			if(n>100)
+			cout<<"Impossible"<<endl;
+	}
+
+};
+
+
+
+
+int main() 
+{
+    int n, n1, n2,n3;
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        cin >> n1 >> n2 >> n3;
+        HanXin hx;  //韩信
+        hx.line3(n1);  //3人一排
+        hx.line5(n2);   //5人一排
+        hx.line7(n3);   //7人一排
+        hx.showMany();
+    }
+	return 0;
+}

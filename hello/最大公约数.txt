@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+
+class Number
+{public:
+	int n;
+	Number()
+	{
+		n=1;
+	}
+	Number(int x)
+	{
+		set(x);
+	}
+	void set(int x)
+	{
+		n=x;
+	}
+	Number maxDivisor(Number);
+	void show()
+	{
+		cout<<n<<endl;
+	}
+};
+
+Number Number::maxDivisor(Number z)
+	{
+		int x;
+		Number f;
+		if(z.n==0)
+		{
+			f.set(n);
+			return f;
+		}
+		else
+		{
+			x=z.n;
+			z.n=n%z.n;
+			n=x;
+			return maxDivisor(z);
+
+		}
+	}
+
+int main() {
+    int n;
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+		int n1,n2;
+        std::cin >> n1 >> n2;
+        Number no1(n1), no2(n2);
+        Number no3 = no1.maxDivisor(no2);  //最大公约数
+        no3.show();
+    }
+	return 0;
+}
