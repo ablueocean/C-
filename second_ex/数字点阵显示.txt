@@ -1,0 +1,268 @@
+#include <iostream>
+using namespace std;
+int line = 1;
+class DotArray {   //点阵对象
+	const int maxcol, maxrow;
+public:
+	virtual void showrow() const = 0;
+	
+	DotArray():maxcol(5),maxrow(7) {
+	}
+};
+class DA0 : public DotArray {   //0的点阵
+public:
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else if (line== 2)
+			cout << "*   *";
+		else if (line== 3)
+			cout << "*   *";
+		else if (line == 4)
+			cout << "*   *";
+		else if (line == 5)
+			cout << "*   *";
+		else if (line == 6)
+			cout << "*   *";
+		else
+			cout << "*****";
+	}
+};
+class DA1 : public DotArray {   //1的点阵
+public:
+	DA1() {};
+	virtual void showrow() const {
+			cout << "    *";	
+	}
+};
+class DA2 : public DotArray {   //2的点阵
+public:
+	DA2() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else if (line == 2)
+			cout << "    *";
+		else if (line == 3)
+			cout << "    *";
+		else if (line == 4)
+			cout << "*****";
+		else if (line == 5)
+			cout << "*    ";
+		else if (line == 6)
+			cout << "*    ";
+		else
+			cout << "*****";
+	}
+};
+class DA3 : public DotArray {   //3的点阵
+public:
+	DA3() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else if (line == 2)
+			cout << "    *";
+		else if (line == 3)
+			cout << "    *";
+		else if (line == 4)
+			cout << "*****";
+		else if (line == 5)
+			cout << "    *";
+		else if (line == 6)
+			cout << "    *";
+		else
+			cout << "*****";
+	}
+};
+class DA4 : public DotArray {   //4的点阵
+public:
+	DA4() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*   *";
+		else if (line == 2)
+			cout << "*   *";
+		else if (line == 3)
+			cout << "*   *";
+		else if (line == 4)
+			cout << "*****";
+		else if (line == 5)
+			cout << "    *";
+		else if (line == 6)
+			cout << "    *";
+		else
+			cout << "    *";
+	}
+};
+class DA5 : public DotArray {   //5的点阵
+public:
+	DA5() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else if (line == 2)
+			cout << "*    ";
+		else if (line == 3)
+			cout << "*    ";
+		else if (line == 4)
+			cout << "*****";
+		else if (line == 5)
+			cout << "    *";
+		else if (line == 6)
+			cout << "    *";
+		else
+			cout << "*****";
+	}
+};
+class DA6 : public DotArray {   //6的点阵
+public:
+	DA6() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else if (line == 2)
+			cout << "*    ";
+		else if (line == 3)
+			cout << "*    ";
+		else if (line == 4)
+			cout << "*****";
+		else if (line == 5)
+			cout << "*   *";
+		else if (line == 6)
+			cout << "*   *";
+		else
+			cout << "*****";
+	}
+};
+class DA7 : public DotArray {   //7的点阵
+public:
+	DA7() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else
+		    cout << "    *";
+	}
+};
+class DA8 : public DotArray {   //8的点阵
+public:
+	DA8() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else if (line == 2)
+			cout << "*   *";
+		else if (line == 3)
+			cout << "*   *";
+		else if (line == 4)
+			cout << "*****";
+		else if (line == 5)
+			cout << "*   *";
+		else if (line == 6)
+			cout << "*   *";
+		else
+			cout << "*****";
+	}
+};
+class DA9 : public DotArray {   //9的点阵
+public:
+	DA9() {};
+	virtual void showrow() const {
+		if (line == 1)
+			cout << "*****";
+		else if (line == 2)
+			cout << "*   *";
+		else if (line == 3)
+			cout << "*   *";
+		else if (line == 4)
+			cout << "*****";
+		else if (line == 5)
+			cout << "    *";
+		else if (line == 6)
+			cout << "    *";
+		else
+			cout << "*****";
+	}
+};
+DA0 d0;DA1 d1;DA2 d2;DA3 d3;DA4 d4;DA5 d5;DA6 d6;DA7 d7;DA8 d8;DA9 d9;
+class DAPrinter {
+private:
+          const int num;
+	int con;
+	DotArray* das[4]; 
+public:
+	DAPrinter(int n) :num(n){
+		for(int i=0;i<4;i++)
+			das[i]=NULL;
+		con = 0;
+	}
+	void split() {
+		int n = num;
+		con = 0;
+		while (n) {
+			con++;
+			switch (n % 10) {
+			      case 0:
+					  das[con - 1] = &d0;
+					  break;
+				  case 1:
+					  das[con - 1] = &d1;
+					  break;
+				  case 2:
+					  das[con - 1] = &d2;
+					  break;
+				  case 3:
+					  das[con - 1] = &d3;
+					  break;
+				  case 4:
+					  das[con - 1] = &d4;
+					  break;
+				  case 5:
+					  das[con - 1] = &d5;
+					  break;
+				  case 6:
+					  das[con - 1] = &d6;
+					  break;
+				  case 7:
+					  das[con - 1] = &d7;
+					break;
+				  case 8:
+					  das[con - 1] = &d8;
+					  break;
+				  case 9:
+					  das[con - 1] = &d9;
+					  break;
+			}
+			n /= 10;
+		}
+	}
+	void print() {
+		for (line=1 ; line <= 7; line++) {
+			for (int i = con-1; i>= 0; i--) {
+				das[i]->showrow();
+				cout << "  ";
+			}
+			cout << endl;
+		}
+	}
+	void reset() {
+		for (int i = 0; i < 4; i++)
+			das[i] = NULL;
+		con = 0;
+	}
+};
+int main() {
+	int n;
+	cin >> n;
+	for (int t = 0; t < n; t++) {
+		int x;
+		cin >> x;
+		cout << x << ":" << endl;
+		DAPrinter p(x);
+		p.reset();
+		p.split();
+		p.print();
+	}
+	return 0;
+}
